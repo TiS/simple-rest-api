@@ -51,6 +51,15 @@ For example, to clear project cache, you can use:
 docker-compose exec api bin/console cache:clear
 ```
 
+To update project dependencies, use:
+
+```shell script
+docker-compose exec api composer update
+```
+
+Be aware, that both `composer.json` and `composer.lock` are versioned. This is deliberate,
+as package versions should be frozen and updated deliberately, not by mistake.
+
 You can also log to API machine shell using:
 
 ```shell script
