@@ -39,5 +39,23 @@ To build containers, invoke `docker-compose build`.
 
 To run service, invoke `docker-compose up -d`.
 
-That's it!
+That's it! You can now test project using URL `http://localhost:<NGINX_PORT>`. If you want to experiment,
+you can use `docker-compose exec` to invoke commands on project services.
+
+There are two docker instances created. First one, called `nginx`, serves as a backend proxy
+and for serving static files. The second one, called `api` is used as PHP backend.
+
+For example, to clear project cache, you can use:
+
+```shell script
+docker-compose exec api bin/console cache:clear
+```
+
+You can also log to API machine shell using:
+
+```shell script
+docker-compose exec api bash
+```
+
+To stop a project, just invoke `docker-compose down`.
 
